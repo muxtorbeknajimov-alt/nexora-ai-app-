@@ -1,0 +1,20 @@
+name: Build NEXORA APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build APK
+        run: |
+          mkdir -p app/src/main/assets
+          echo "NEXORA AI" > app/src/main/assets/index.txt
